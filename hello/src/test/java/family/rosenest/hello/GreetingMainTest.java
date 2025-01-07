@@ -14,6 +14,7 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.Module;
 
+import family.rosenest.hello.app.Annotation.Greeting;
 import family.rosenest.hello.app.GreetingApp;
 
 class GreetingMainTest {
@@ -27,11 +28,12 @@ class GreetingMainTest {
           StringWriter out = new StringWriter();
           bind(StringWriter.class).toInstance(out);
           bind(PrintWriter.class).toInstance(new PrintWriter(out));
-          bind(String.class).toInstance(TEST_GREETING);
+          bind(String.class).annotatedWith(Greeting.class).toInstance(TEST_GREETING);
         }
       };
 
   private final Injector injector = createInjector(TEST_MODULE);
+
   @Inject private StringWriter out;
   @Inject private GreetingApp app;
 

@@ -2,6 +2,7 @@ package family.rosenest.hello.app;
 
 import java.io.PrintWriter;
 
+import family.rosenest.hello.app.Annotation.Greeting;
 import jakarta.inject.Inject;
 
 public final class GreetingApp implements Runnable {
@@ -10,7 +11,7 @@ public final class GreetingApp implements Runnable {
   private final String greeting;
 
   @Inject
-  GreetingApp(PrintWriter out, String greeting) {
+  GreetingApp(PrintWriter out, @Greeting String greeting) {
     this.out = out;
     this.greeting = greeting;
   }
