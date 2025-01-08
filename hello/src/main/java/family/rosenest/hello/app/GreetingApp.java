@@ -1,9 +1,8 @@
 package family.rosenest.hello.app;
 
-import java.io.PrintWriter;
-
 import family.rosenest.hello.app.Annotation.Greeting;
 import jakarta.inject.Inject;
+import java.io.PrintWriter;
 
 public final class GreetingApp implements Runnable {
 

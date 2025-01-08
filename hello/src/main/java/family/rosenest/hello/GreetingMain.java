@@ -1,8 +1,8 @@
 package family.rosenest.hello;
 
 import static com.google.inject.Guice.createInjector;
-import com.google.inject.Module;
 
+import com.google.inject.Module;
 import family.rosenest.hello.app.GreetingApp;
 import family.rosenest.hello.app.module.GreetingAppModule;
 

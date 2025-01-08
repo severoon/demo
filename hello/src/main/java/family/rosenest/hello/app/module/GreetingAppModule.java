@@ -1,10 +1,8 @@
 package family.rosenest.hello.app.module;
 
-import java.io.PrintWriter;
-
 import com.google.inject.AbstractModule;
-
 import family.rosenest.hello.app.Annotation.Greeting;
+import java.io.PrintWriter;
 
 public final class GreetingAppModule extends AbstractModule {
 
