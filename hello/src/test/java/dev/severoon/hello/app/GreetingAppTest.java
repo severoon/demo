@@ -1,11 +1,10 @@
-package family.rosenest.hello.app;
+package dev.severoon.hello.app;
 
 import static com.google.common.truth.Truth.assertThat;
 import static java.lang.String.format;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
-
 import org.junit.jupiter.api.Test;
 
 class GreetingAppTest {

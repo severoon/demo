@@ -1,7 +1,7 @@
-package family.rosenest.hello.app.module.testing;
+package dev.severoon.hello.app.module.testing;
 
 import com.google.inject.AbstractModule;
-import family.rosenest.hello.app.Annotation.Greeting;
+import dev.severoon.hello.app.Annotation.Greeting;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 

@@ -1,19 +1,17 @@
-package family.rosenest.hello;
-
-import java.io.StringWriter;
-import static java.lang.String.format;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+package dev.severoon.hello;
 
 import static com.google.common.truth.Truth.assertThat;
 import static com.google.inject.Guice.createInjector;
+import static dev.severoon.hello.app.module.testing.GreetingAppTestModule.newGreetingAppTestModule;
+import static java.lang.String.format;
+
 import com.google.inject.Inject;
 import com.google.inject.Injector;
-
-import family.rosenest.hello.app.Annotation.Greeting;
-import family.rosenest.hello.app.GreetingApp;
-import static family.rosenest.hello.app.module.testing.GreetingAppTestModule.newGreetingAppTestModule;
+import dev.severoon.hello.app.Annotation.Greeting;
+import dev.severoon.hello.app.GreetingApp;
+import java.io.StringWriter;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class GreetingMainTest {
 

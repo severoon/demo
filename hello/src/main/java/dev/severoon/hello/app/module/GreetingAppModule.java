@@ -1,7 +1,7 @@
-package family.rosenest.hello.app.module;
+package dev.severoon.hello.app.module;
 
 import com.google.inject.AbstractModule;
-import family.rosenest.hello.app.Annotation.Greeting;
+import dev.severoon.hello.app.Annotation.Greeting;
 import java.io.PrintWriter;
 
 public final class GreetingAppModule extends AbstractModule {

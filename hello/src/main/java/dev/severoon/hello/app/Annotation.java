@@ -1,4 +1,4 @@
-package family.rosenest.hello.app;
+package dev.severoon.hello.app;
 
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;

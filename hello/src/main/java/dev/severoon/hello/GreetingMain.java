@@ -1,10 +1,10 @@
-package family.rosenest.hello;
+package dev.severoon.hello;
 
 import static com.google.inject.Guice.createInjector;
 
 import com.google.inject.Module;
-import family.rosenest.hello.app.GreetingApp;
-import family.rosenest.hello.app.module.GreetingAppModule;
+import dev.severoon.hello.app.GreetingApp;
+import dev.severoon.hello.app.module.GreetingAppModule;
 
 public final class GreetingMain {
 

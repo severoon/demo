@@ -1,6 +1,6 @@
-package family.rosenest.hello.app;
+package dev.severoon.hello.app;
 
-import family.rosenest.hello.app.Annotation.Greeting;
+import dev.severoon.hello.app.Annotation.Greeting;
 import jakarta.inject.Inject;
 import java.io.PrintWriter;
 
