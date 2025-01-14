@@ -16,6 +16,11 @@ public final class Annotation {
   @Retention(RUNTIME)
   public @interface Greeting {}
 
+  @Qualifier
+  @Target({FIELD, METHOD, PARAMETER})
+  @Retention(RUNTIME)
+  public @interface Output {}
+
   /** Private constructor to prevent instantiation. */
   private Annotation() {}
 }
