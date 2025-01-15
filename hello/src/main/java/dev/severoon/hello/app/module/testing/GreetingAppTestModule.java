@@ -10,8 +10,8 @@ import java.io.StringWriter;
 /**
  * Module that configures a {@link GreetingApp} for testing.
  *
- * <p>Specifically, this module binds a {@link StringWriter} that can be injected into tests that
- * captures application output.
+ * <p>Specifically, this module binds an {@link Output}-annotated {@link StringWriter} that can be
+ * injected into tests that captures application output.
  */
 public final class GreetingAppTestModule extends AbstractModule {
 
@@ -26,7 +26,7 @@ public final class GreetingAppTestModule extends AbstractModule {
     install(new GreetingAppModule());
 
     StringWriter out = new StringWriter();
-    bind(StringWriter.class).toInstance(out);
+    bind(StringWriter.class).annotatedWith(Output.class).toInstance(out);
     bind(PrintWriter.class).annotatedWith(Output.class).toInstance(new PrintWriter(out));
     bind(String.class).annotatedWith(Greeting.class).toInstance(greeting);
   }

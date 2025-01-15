@@ -8,6 +8,7 @@ import static java.lang.String.format;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import dev.severoon.hello.app.Annotation.Greeting;
+import dev.severoon.hello.app.Annotation.Output;
 import dev.severoon.hello.app.GreetingApp;
 import java.io.StringWriter;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,8 +19,8 @@ class GreetingMainTest {
 
   private final Injector injector = createInjector(newGreetingAppTestModule("Test greeting"));
 
+  @Inject @Output private StringWriter out;
   @Inject @Greeting private String greeting;
-  @Inject private StringWriter out;
   @Inject private GreetingApp app;
 
   @BeforeEach
