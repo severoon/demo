@@ -27,7 +27,7 @@ public final class GreetingAppTestModule extends AbstractModule {
 
     StringWriter out = new StringWriter();
     bind(StringWriter.class).annotatedWith(Output.class).toInstance(out);
-    bind(PrintWriter.class).annotatedWith(Output.class).toInstance(new PrintWriter(out));
+    bind(PrintWriter.class).annotatedWith(Output.class).toInstance(new PrintWriter(out, true));
     bind(String.class).annotatedWith(Greeting.class).toInstance(greeting);
   }
 
