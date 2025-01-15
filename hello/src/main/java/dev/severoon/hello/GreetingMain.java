@@ -9,9 +9,13 @@ import dev.severoon.hello.app.GreetingApp;
 import dev.severoon.hello.app.module.GreetingAppModule;
 import java.io.PrintWriter;
 
+/** Main class to configure and run a {@link GreetingApp}. */
 public final class GreetingMain {
 
+  /** {@link System#out}, the default output to use if one is not otherwise specified. */
   private static final PrintWriter OUTPUT_DEFAULT = new PrintWriter(System.out, true);
+
+  /** Default greeting to use if one is not otherwise specified. */
   private static final String GREETING_DEFAULT = "Hello, world!";
 
   private static final Module APP_MODULE =
@@ -23,6 +27,7 @@ public final class GreetingMain {
         }
       };
 
+  /** Configure and run a {@link GreetingApp} instance. */
   public static void main(String[] args) {
     createInjector(APP_MODULE).getInstance(GreetingApp.class).run();
   }

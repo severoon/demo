@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import org.junit.jupiter.api.Test;
 
+/** Test for {@link GreetingAppImpl}. */
 class GreetingAppImplTest {
 
   private static final String TEST_GREETING = "Test greeting";

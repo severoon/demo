@@ -7,6 +7,12 @@ import dev.severoon.hello.app.module.GreetingAppModule;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
+/**
+ * Module that configures a {@link GreetingApp} for testing.
+ *
+ * <p>Specifically, this module binds a {@link StringWriter} that can be injected into tests that
+ * captures application output.
+ */
 public final class GreetingAppTestModule extends AbstractModule {
 
   private final String greeting;
@@ -25,6 +31,7 @@ public final class GreetingAppTestModule extends AbstractModule {
     bind(String.class).annotatedWith(Greeting.class).toInstance(greeting);
   }
 
+  /** Returns a testing module for the specified {@code greeting}. */
   public static GreetingAppTestModule newGreetingAppTestModule(String greeting) {
     return new GreetingAppTestModule(greeting);
   }

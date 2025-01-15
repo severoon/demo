@@ -13,6 +13,7 @@ import java.io.StringWriter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/** Test for {@link GreetingMain}. */
 class GreetingMainTest {
 
   private final Injector injector = createInjector(newGreetingAppTestModule("Test greeting"));

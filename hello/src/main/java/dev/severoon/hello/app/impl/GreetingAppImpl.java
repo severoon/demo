@@ -6,6 +6,7 @@ import dev.severoon.hello.app.GreetingApp;
 import jakarta.inject.Inject;
 import java.io.PrintWriter;
 
+/** Implementation of a {@link GreetingApp}. */
 public final class GreetingAppImpl implements GreetingApp {
 
   private final PrintWriter out;
@@ -17,11 +18,13 @@ public final class GreetingAppImpl implements GreetingApp {
     this.greeting = greeting;
   }
 
+  /** Returns the greeting output by this app. */
   @Override
   public String getGreeting() {
     return greeting;
   }
 
+  /** Outputs a greeting. */
   @Override
   public void run() {
     out.println(greeting);
