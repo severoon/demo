@@ -1,5 +1,7 @@
 package dev.severoon.hello.app.impl;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import dev.severoon.hello.app.Annotation.Greeting;
 import dev.severoon.hello.app.Annotation.Output;
 import dev.severoon.hello.app.GreetingApp;
@@ -14,8 +16,8 @@ public final class GreetingAppImpl implements GreetingApp {
 
   @Inject
   GreetingAppImpl(@Output PrintWriter out, @Greeting String greeting) {
-    this.out = out;
-    this.greeting = greeting;
+    this.out = checkNotNull(out);
+    this.greeting = checkNotNull(greeting);
   }
 
   /** Returns the greeting output by this app. */
