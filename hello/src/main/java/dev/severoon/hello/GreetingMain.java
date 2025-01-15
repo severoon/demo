@@ -1,34 +1,36 @@
 package dev.severoon.hello;
 
 import static com.google.inject.Guice.createInjector;
-import static dev.severoon.hello.app.module.GreetingAppInputsModule.greetingAppInputsModuleFor;
+import static dev.severoon.hello.module.GreetingMainModule.greetingMainModuleFor;
+import static java.lang.String.format;
 
-import com.google.inject.AbstractModule;
-import com.google.inject.Module;
 import dev.severoon.hello.app.GreetingApp;
-import dev.severoon.hello.app.module.GreetingAppModule;
-import java.io.PrintWriter;
+import java.util.Optional;
 
 /** Main class to configure and run a {@link GreetingApp}. */
 public final class GreetingMain {
 
-  /** {@link System#out}, the default output to use if one is not otherwise specified. */
-  private static final PrintWriter OUTPUT_DEFAULT = new PrintWriter(System.out, true);
-
-  /** Default greeting to use if one is not otherwise specified. */
-  private static final String GREETING_DEFAULT = "Hello, world!";
-
-  private static final Module APP_MODULE =
-      new AbstractModule() {
-        @Override
-        protected void configure() {
-          install(new GreetingAppModule());
-          install(greetingAppInputsModuleFor(OUTPUT_DEFAULT, GREETING_DEFAULT));
-        }
-      };
+  /** Exit code of {@link GreetingMain}. */
+  private enum ExitCode {
+    SUCCESS,
+    INVALID_ARGUMENTS;
+  }
 
   /** Configure and run a {@link GreetingApp} instance. */
   public static void main(String[] args) {
-    createInjector(APP_MODULE).getInstance(GreetingApp.class).run();
+    createInjector(greetingMainModuleFor(parseConfig(args))).getInstance(GreetingApp.class).run();
+  }
+
+  /** Parses specified command line {@code args} into a {@link UserConfig} record. */
+  private static UserConfig parseConfig(String[] args) {
+    if (args.length > 1) {
+      System.err.println(format("Usage: %s [greeting]", GreetingMain.class.getSimpleName()));
+      System.err.println(
+          format("Example: java %s \"Hello, Guice world!\"", GreetingMain.class.getSimpleName()));
+      System.exit(ExitCode.INVALID_ARGUMENTS.ordinal());
+    }
+    return new UserConfig(
+        Optional.empty(), // User-configured output not supported in this example.
+        args.length > 0 ? Optional.of(args[0]) : Optional.empty());
   }
 }
